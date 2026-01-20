@@ -43,6 +43,11 @@ h1 {
   margin-bottom: 0;
   color: rgb(56, 127, 109);
 }
+#description {
+  font-size: 16px;
+  font-style: italic;
+  color: rgb(130, 171, 161);
+}
 h3 {
   margin-bottom: 0;
   font-weight: normal;
@@ -70,11 +75,12 @@ textarea {
   padding: 10px;
   resize: none;
   width: 93%;
-  font-size: 13px;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
 }
 #userInput {
   min-height: 30px;
-  max-height: 30px;
+  max-height: 150px;
 }
 #responseArea {
   min-height: 300px;
@@ -98,7 +104,7 @@ button:hover {
   background-color: #75ae8c;
 }
 button:active {
-  background-color: #639677;
+  background-color: #79b290;
 }
 #buttonsContainer {
   display: flex;

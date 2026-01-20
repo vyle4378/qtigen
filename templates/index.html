@@ -3,35 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>QTI Generator</title>
+    <title>QTIgen</title>
     <!-- must have the leading slash before static-->
     <link rel="stylesheet" href="/static/styles.css" />
     <link rel="icon" type="image/png" href="/static/favicon.ico" />
     <script src="/static/script.js" defer></script>
   </head>
-  <!-- Google tag (gtag.js) for analytics -->
-  <script
-    async
-    src="https://www.googletagmanager.com/gtag/js?id=G-5N9VNHZX2H"
-  ></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
-
-    gtag("config", "G-5N9VNHZX2H");
-  </script>
   <body>
     <div id="header">
-      <h1>QTI Generator</h1>
-      <a id="email" href="mailto:vyle4378@gmail.com">vyle4378@gmail.com</a>
+      <h1>QTIgen</h1>
+      <a id="email" href="mailto:vy@khanlabschool.org">vy@khanlabschool.org</a>
     </div>
+    <div id="description">Create Canvas quizzes with AI</div>
+    <br />
     <h3>
-      Step 1 (Optional): Generate problems. If you already have them, go to step
-      2.
+      <b>Step 1</b> (Optional): Generate problems. If you already have them, go
+      to step 2.
     </h3>
+    <a
+      href="https://docs.google.com/document/d/1VJUXiOxDDTXucliSt82bKSVwtZnPGRcIMZ_kgHFmIfA/edit?tab=t.re289c6uoaha"
+      >Example prompts</a
+    >
     <textarea
       id="userInput"
       placeholder="Give me 5 multiple choice problems and 5 fill in the blank problems about the quadratic formula"
@@ -42,10 +34,17 @@
     </button>
     <br />
     <br />
-    <h3>Step 2: Paste problems below. Edit as needed. Convert once done.</h3>
+    <br />
+    <h3>
+      <b>Step 2</b>: Paste problems below. Edit as needed. Convert once done.
+    </h3>
     <label for="zipName">Name your zip file:</label>
     <input type="text" id="zipName" placeholder="Quadratic Formula" />
     <textarea id="responseArea" placeholder="Enter problems"></textarea>
+    <a
+      href="https://docs.google.com/document/d/1VJUXiOxDDTXucliSt82bKSVwtZnPGRcIMZ_kgHFmIfA/edit?tab=t.punr8du6x2b"
+      >Formatting instructions</a
+    >
     <div id="buttonsContainer">
       <button id="formatButton">
         Format
@@ -55,51 +54,10 @@
     </div>
     <br />
     <br />
-    <h3>Step 3: Upload the QTI zip file onto Canvas</h3>
-
-    <div>
-      As a Classic Quiz
-      <ol>
-        <li>Go to your Canvas course.</li>
-        <li>
-          Click the “Import Existing Content” button on the home page or select
-          the “Import Course Content” on the course settings page.
-        </li>
-        <li>
-          Under Import Content and next to “Content Type” select “QTI .zip file”
-          from the pull-down menu.
-        </li>
-        <li>
-          Click the "Choose File" button and select the downloaded zip file.
-        </li>
-        <li>
-          Click the "Import" button, wait for the import process to complete,
-          and check the Quizzes link in your course for the quiz.
-        </li>
-      </ol>
-    </div>
-    <div>
-      As an item bank in New Quizzes
-      <ol>
-        <li>Go to your Canvas course.</li>
-        <li>Click the “Item Banks” button on the left sidebar.</li>
-        <li>
-          Click the blue “+ Bank” button on the top right corner. Enter any name
-          for the item bank since it will be overridden.
-        </li>
-        <li>Find the item bank in the list and click on it.</li>
-        <li>
-          Click on the 3 dots on the top right corner of the item bank and
-          select "Import Content".
-        </li>
-        <li>
-          Click the "Choose File" button and select the downloaded zip file.
-        </li>
-        <li>
-          Click the "Import" button, wait for the import process to complete,
-          and check that the questions are successfully imported.
-        </li>
-      </ol>
-    </div>
+    <h3><b>Step 3</b>: Upload the QTI zip file onto Canvas</h3>
+    <a
+      href="https://docs.google.com/document/d/1VJUXiOxDDTXucliSt82bKSVwtZnPGRcIMZ_kgHFmIfA/edit?tab=t.p2ixewln36ob"
+      >Upload instructions</a
+    >
   </body>
 </html>

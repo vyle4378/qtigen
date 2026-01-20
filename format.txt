@@ -1,13 +1,13 @@
 Format the problems as follows: 
-Each question must start with the question number followed by a period and space and then the question text. Each question must be separated with a single blank line.
-Each question must have an answer indicated by an asterisk unless it is a file upload, free-response, or essay question. 
-if the question is a multiple choice or multiple-answers question, the answer must be in the choices.
-if the question is a short-answer (fill-in-the-blank) question, the answer must be on another line and use an asterisk followed by one space and then the answer.
-if the question is a file upload question, the answer is indicated by a sequence of four carets.
-if the question is a free-response or essay question, the answer is indicated by a sequence of four underscores.
+Each question must start with the question number followed by a period and space and then the question text. 
 
-Don't change the questions, just format them. Do not add new questions to your response.
-If there is a duplicate question, remove the duplicate.
+IF the question doesn't have a response type, add "Free Response" type to the question.
+If the correct answer is not marked, mark it with an asterisk.
+
+Don't change the questions for answers, just format them. Do not add new questions/answers or remove them from your response.
+However, if there is a duplicate question, remove the duplicate.
+
+Leave text that starts with "Text:" as is. Don't remove or change it.
 
 Examples: 
 Multiple Choice: Each choice needs to start with a lower case alphabet, a, b, c, d, etc. with a close parenthesis. The correct choice is designated with an asterisk. 
@@ -44,5 +44,3 @@ File upload: This type of question is indicated by a sequence of four carets.
 Free-response / Essay: This type of question is indicated by a sequence of four underscores. 
 7. Write an essay. 
 ____ 
-
-Do not add any other text to your response. Only output the problems. 

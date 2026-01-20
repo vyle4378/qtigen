@@ -1,4 +1,4 @@
-from fastapi import FastAPI, BackgroundTasks
+from fastapi import FastAPI, BackgroundTasks, HTTPException
 from fastapi.responses import HTMLResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -61,7 +61,7 @@ async def format_problems(input: GeneratedProblems):
     response = client.messages.create(
         model=MODEL,
         system=FORMAT_PROMPT,
-        max_tokens=1000,
+        max_tokens=5000,
         messages=[
             {
                 "role": "user",
@@ -81,18 +81,23 @@ async def convert_problems(input: GeneratedProblems, background_tasks: Backgroun
         tmp.write(input.problems)
         tmp.flush()
         input_file = Path(tmp.name)
-
+        
     try:
-        subprocess.run(["text2qti", str(input_file)], check=True)
+        subprocess.run(["text2qti", str(input_file)], check=True, capture_output=True, text=True)
     except subprocess.CalledProcessError as e:
-        input_file.unlink(missing_ok=True)
-        return {"error": f"text2qti failed: {e}"}
+        error_message = e.stderr
+        formatted_error_message = error_message.split('.txt" on ')[-1].strip()
+        if "Question must specify only one correct choice" in formatted_error_message:
+            formatted_error_message += "\nIf you want to allow multiple correct choices, use [] and [*] instead."
+        if "Question must specify a response type" in formatted_error_message:
+            formatted_error_message += " \nSee formatting instructions at https://github.com/gpoore/text2qti"
+        print("formatted error message: ", formatted_error_message)
+        raise HTTPException(status_code=400, detail=formatted_error_message)
 
     zip_path = Path(input_file).with_suffix(".zip")
     if not zip_path.exists():
         input_file.unlink(missing_ok=True)
-        return {"error": "Zip not found"}
-
+        raise HTTPException(status_code=400, detail="Zip not found")
     # Clean up the temporary files after the response is sent
     background_tasks.add_task(input_file.unlink, missing_ok=True)
     background_tasks.add_task(zip_path.unlink, missing_ok=True)
