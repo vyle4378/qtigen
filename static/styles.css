@@ -34,6 +34,9 @@ a:hover {
   body {
     margin-right: 30px;
   }
+  #email {
+    display: none;
+  }
 }
 #email {
   margin-right: 30px;
