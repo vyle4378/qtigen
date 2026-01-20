@@ -61,7 +61,7 @@ async def format_problems(input: GeneratedProblems):
     response = client.messages.create(
         model=MODEL,
         system=FORMAT_PROMPT,
-        max_tokens=1000,
+        max_tokens=5000,
         messages=[
             {
                 "role": "user",

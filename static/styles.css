@@ -74,7 +74,7 @@ textarea {
 }
 #userInput {
   min-height: 30px;
-  max-height: 30px;
+  max-height: 150px;
 }
 #responseArea {
   min-height: 300px;

@@ -5,6 +5,11 @@ const responseArea = document.getElementById("responseArea");
 const convertButton = document.getElementById("convertButton");
 const formatButton = document.getElementById("formatButton");
 
+userInput.addEventListener("input", () => {
+  userInput.style.height = "auto";
+  userInput.style.height = userInput.scrollHeight - 20 + "px";
+});
+
 async function generateProblems(userInput) {
   const message = userInput.value;
   const response = await fetch("/generate", {
@@ -18,7 +23,6 @@ async function generateProblems(userInput) {
   const data = await response.json();
   responseArea.value = data.problems;
   console.log("done generating problems");
-  adjustTextareaHeight();
 }
 
 async function formatProblems(responseArea) {
@@ -34,7 +38,6 @@ async function formatProblems(responseArea) {
   const data = await response.json();
   responseArea.value = data.problems;
   console.log("done formatting problems");
-  adjustTextareaHeight();
 }
 
 async function convertProblems() {
@@ -64,15 +67,6 @@ async function convertProblems() {
   URL.revokeObjectURL(url); // Frees up memory used by the blob URL
 }
 
-function adjustTextareaHeight() {
-  textareas.forEach((textarea) => {
-    textarea.addEventListener("input", () => {
-      textarea.style.height = "auto";
-      textarea.style.height = textarea.scrollHeight - 20 + "px";
-    });
-  });
-}
-
 generateButton.addEventListener("click", () => {
   if (userInput.value !== "") {
     generateProblems(userInput);
@@ -96,5 +90,3 @@ convertButton.addEventListener("click", () => {
     alert("Please enter problems to convert");
   }
 });
-
-adjustTextareaHeight();
