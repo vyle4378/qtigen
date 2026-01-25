@@ -42,7 +42,7 @@ async def generate_problems(input: UserInput):
     response = client.messages.create(
         model=MODEL,
         system=GENERATE_PROMPT,
-        max_tokens=1000,
+        max_tokens=8000,
         messages=[
             {
                 "role": "user",
@@ -61,7 +61,7 @@ async def format_problems(input: GeneratedProblems):
     response = client.messages.create(
         model=MODEL,
         system=FORMAT_PROMPT,
-        max_tokens=5000,
+        max_tokens=8000,
         messages=[
             {
                 "role": "user",
